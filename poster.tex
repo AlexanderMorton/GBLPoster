@@ -21,7 +21,7 @@
 \usepackage{graphicx} % Required for including images
 \graphicspath{{figures/}} % Location of the graphics files
 \usepackage{booktabs} % Top and bottom rules for table
-\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage[font=normalsize,labelfont=bf]{caption} % Required for specifying captions to tables and figures
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
 \usepackage{wrapfig} % Allows wrapping text around tables and figures
 \usepackage{graphicx}
@@ -54,10 +54,12 @@
 \Large \texttt{a.morton.2@research.gla.ac.uk}
 \end{minipage}
 %
+%\begin{figure}
 \begin{minipage}[b]{0.25\linewidth}
 \includegraphics[width=20cm]{GlaUni.png}\\
 \includegraphics[width=7cm]{mp2-logo.png} \hspace{3cm} \includegraphics[width=7cm]{gbl-logo.png}\\
 \end{minipage}
+%\end{figure}
 
 \vspace{1cm} % A bit of extra whitespace between the header and poster content
 
@@ -73,6 +75,7 @@
 \color{Navy} % Navy color for the abstract
 
 \begin{abstract}
+\normalsize
 The General Broken Lines (GBL) algorithm has been successfully integrated into the EUTelescope framework. This is designed to be a generic fitter for many different testbeam setups. Many datasets have been successfully reconstructed and all examples can be found installed with EUTelescope by default. A subset of these are ATLAS upgrade inner tracker prototypes. These prototypes are a variety of strip and pixel sensors which have been tested at the DESY/SLAC testbeam. 
 
 
@@ -128,17 +131,7 @@ One example of the various ATLAS pixels sensors reconstructed is the Quad module
 \captionof{figure}{\color{Green} Quad module local X axis residual for DESY 4 GeV beam. RMS is comparable with the expected 250 $\mu m$ pitch assuming a uniform distribution of predicted hits on each pixel.}
 \label{trine}
 \end{center}
-
-
-
-%\section*{ATLAS Pixels}
- %Two 50x250 $\mu m^2$ FEI4 device was placed in cooling box for measurements at the DESY testbeam. The total radiation length of the box contributed 22% radiation length to the trajectory of the electrons passing through the DUTs. This radiation length must be included in the fit for an accurate model of the track. This is included in the orange points in figure \cite{Scat} between the DUTs and the mimosa planes. 
-%\begin{center}
-%\includegraphics[width=0.7\linewidth]{figures/resXpixel.pdf}
-%\captionof{figure}{\color{Green} Quad module local Y axis residual for DESY 4 GeV beam}
-%\label{trine}
-%\end{center}
-
+\vspace{100 mm}
 \section*{ATLAS strips}
 The ATLAS12 sensor is a n$^+$-in-p strip device of pitch 70 $\mu m$\cite{atlas12}. 
 \begin{center}
@@ -154,22 +147,11 @@ The ATLAS12 sensor is a n$^+$-in-p strip device of pitch 70 $\mu m$\cite{atlas12
 
 \section*{Additional Features}
 This track fitting procedure has been used for many different purposes. Some are complete and others are in development. In all cases examples from the raw data to the final reconstructed tracks are available as part of the EUTelescope examples. 
-\newline
-\newline
-\textbf{Magnetic fields:} The fitter has been tested with use in a magnetic field with various beam energies at the DESY testbeam. Both forms of pattern recognition are designed to function in the presence of magnetic fields. The energy of each track is assumed constant which is an approximation since this will change during the track's trajectory.
 \begin{center}
 \includegraphics[width=0.6\linewidth]{figures/beamE3B1.pdf}
 \captionof{figure}{\color{Green} Measurement of beam energy using the curvature of the beam with 1T magnetic field. The clustering pattern recognition was used to find tracks to be fitted. The R parameter is the clustering window in which hits will be assumed to form a track if within this window. The beam energy is the pattern recognition assumption during clustering. No bias was found between pattern recognition settings and the final measured beam energy.}
 \label{trine}
 \end{center}
-
-A range of beam energies (1 GeV to 5 GeV)/magnetic fields (0 T to 1 T) from different datasets have been fitted and aligned. The estimated track energies have all corresponded to expected physical values given some energy loss due to bremsstrahlung and the energy spread of the beam.
-\newline
-\newline
-\textbf{Kink Angle Estimations:} A scattering plane of interest can be placed at any location using the geometry description within EUTelescope. This allows the scattering at a location in space to be estimated using the kink angles at that location. This is currently been used for radiation length measurements and in development. 
-\newline
-\newline
-\textbf{ALiBaVa Readout:} A ATLAS12 sensor has been reconstructed using the ALiBaVa readout system. This allows the charge information to be determined, this reduces the value of the measured uncertainty of hit position. 
 
 \begin{thebibliography}{9}
 	\bibitem{quad} P.P AllPort et al. "Development of planar pixel modules for the ATLAS high luminosity LHC tracker upgrade".Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment 2014: 109 to 113
