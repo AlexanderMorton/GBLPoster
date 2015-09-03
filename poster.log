@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.8.25)  25 AUG 2015 23:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.8.25)  3 SEP 2015 21:17
 entering extended mode
 **C:/Users/alexander/Documents/GitHub/GBLPoster/poster.tex
 (C:/Users/alexander/Documents/GitHub/GBLPoster/poster.tex
@@ -678,10 +678,8 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 80.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: Citation `blobel' on page 1 undefined on input line 94.
-
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 97.
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -692,7 +690,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <24.88> not available
 File: figures/meas-scat-jac-link.png Graphic file (type png)
 
 <use figures/meas-scat-jac-link.png>
-Package pdftex.def Info: figures/meas-scat-jac-link.png used on input line 116.
+Package pdftex.def Info: figures/meas-scat-jac-link.png used on input line 114.
 
 (pdftex.def)             Requested size: 1087.54128pt x 506.52168pt.
 
@@ -700,24 +698,38 @@ Package pdftex.def Info: figures/meas-scat-jac-link.png used on input line 116.
 File: figures/QuadXRes21.pdf Graphic file (type pdf)
 
 <use figures/QuadXRes21.pdf>
-Package pdftex.def Info: figures/QuadXRes21.pdf used on input line 124.
+Package pdftex.def Info: figures/QuadXRes21.pdf used on input line 123.
 (pdftex.def)             Requested size: 870.03633pt x 445.03816pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 125.
+(Font)              <12> on input line 128.
 
 <figures/Res1D.pdf, id=10, 569.12625pt x 340.27126pt>
 File: figures/Res1D.pdf Graphic file (type pdf)
  <use figures/Res1D.pdf>
-Package pdftex.def Info: figures/Res1D.pdf used on input line 142.
+Package pdftex.def Info: figures/Res1D.pdf used on input line 145.
 (pdftex.def)             Requested size: 761.27556pt x 455.20305pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--160
+
+ []
 
 <figures/beamE3B1.pdf, id=11, 569.12625pt x 594.22pt>
 File: figures/beamE3B1.pdf Graphic file (type pdf)
 
 <use figures/beamE3B1.pdf>
-Package pdftex.def Info: figures/beamE3B1.pdf used on input line 153.
-(pdftex.def)             Requested size: 870.03633pt x 908.49176pt.
- [1
+Package pdftex.def Info: figures/beamE3B1.pdf used on input line 161.
+(pdftex.def)             Requested size: 652.5314pt x 681.37108pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--173
+
+ []
+
+[1
 
 
 Non-PDF special ignored!
@@ -731,20 +743,17 @@ uments/GitHub/GBLPoster/figures/QuadXRes21.pdf, page is rotated 90 degrees> <C:
 90 degrees> <C:/Users/alexander/Documents/GitHub/GBLPoster/figures/beamE3B1.pdf
 >] (C:\Users\alexander\Documents\GitHub\GBLPoster\poster.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13365 strings out of 493921
- 257365 string characters out of 3147270
- 334575 words of memory out of 3000000
- 16397 multiletter control sequences out of 15000+200000
+ 13367 strings out of 493921
+ 257417 string characters out of 3147270
+ 332495 words of memory out of 3000000
+ 16399 multiletter control sequences out of 15000+200000
  57429 words of font info for 50 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 54i,6n,73p,921b,488s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 54i,6n,73p,908b,910s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec
@@ -752,7 +761,7 @@ nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec
 Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on poster.pdf (1 page, 464965 bytes).
+Output written on poster.pdf (1 page, 469014 bytes).
 PDF statistics:
  175 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

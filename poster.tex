@@ -50,7 +50,7 @@
 \veryHuge \color{NavyBlue} \textbf{Track Reconstruction with ATLAS Upgrade Prototypes using the General Broken Lines Algorithm within EUTelescope} \color{Black}\\ \vspace{1cm} % Title
 %\Huge\textit{Track Reconstruction with ATLAS Upgrade Prototypes using the General Broken Lines Algorithm within EUTelescope}\\[2cm] % Subtitle
 \huge \textbf{Alexander Morton}\\[0.5cm] % Author(s)
-\huge University of Glasgow, School of Physics \& Astronomy, \\ Partice Physics Experimental\\[0.4cm] % University/organization
+\huge University of Glasgow, School of Physics \& Astronomy, \\ Particle Physics Experimental\\[0.4cm] % University/organization
 \Large \texttt{a.morton.2@research.gla.ac.uk}
 \end{minipage}
 %
@@ -90,8 +90,8 @@ The General Broken Lines (GBL) algorithm has been successfully integrated into t
 
 \section*{Background}
 
-\subsection*{Fitting with GBL and Alignment}
-EUTelescope is a highly generic testbeam reconstruction and analysis framework\cite{eutel}. The GBL algorithm is mathematically equivalent to a Kalman filter but computationally different \cite{claus1}. It solves the above problem in terms of offsets of each GBL point and then relating this back to the usual track parameters. This allows the track solution to be found far more easily. Millepede is an algorithm used for alignment which relies to splitting the problem into global parameters(Alignment parameters, X shifts for example) and local parameters (Each track parameter, position on a plane for example)\cite{blobel}. Both GBL and Millipede are employed for track reconstruction. This process begins at pattern recognition and then using five step reconstructs the tracks and adds the information needed to align the detector planes. 
+\subsection*{EUTelescope, GBL and Alignment with Millepede}
+EUTelescope is a highly generic testbeam reconstruction and analysis framework\cite{eutel}. Track reconstruction begins at pattern recognition and then using five step reconstructs the tracks and adds the information needed to align the detector planes. 
 Pattern recognition is needed to identify the hits which make up a track. Two different forms of pattern recognition exist for use with GBL
 \begin{itemize}
 \item \textbf{Clustering} Propagate all hits to the first plane and cluster. 
@@ -100,13 +100,11 @@ Pattern recognition is needed to identify the hits which make up a track. Two di
 
 The GBL track fitting and alignment comes in five steps:
 \begin{itemize}
-\item Link GBL points together to form a complete track described by discrete points.
-Figure \ref{Scat} shows the linking of GBL point together. It consists of linking measurement/scattering errors using the initial trajectory parametrised.
-\item Points which correspond to hits have measurements added with errors. The red points on the green plane of figure \ref{Scat} show these points on the green planes. The measurements pull the track towards it if included in fit.
-\item Points with model scattering have kink angles and errors added. The orange points on figure \ref{Scat} show these points. These points allow a kink to be formed relative to the track incidence at that point.
+\item Link GBL points together to form a complete track described by discrete points. Figure \ref{Scat} shows the linking of GBL points together using the initial trajectory parametrized.
+\item Points which correspond to hits have measurements added with errors. The red points on the green planes of figure \ref{Scat} correspond to measurements.
+\item Points which model scattering have kink angles and errors added. The orange points on figure \ref{Scat} show these points. These points allow a kink to be formed relative to the track incidence at that point.
 \item Global derivatives which relate motions of the sensors with local frame residuals are added for alignment.
-Any relation between the residual on each plane and parameters for the full system. Used in alignment.
-\item Local derivatives are added to determine parameters which relate to tracks residual. Useful for kink angle estimations.
+\item Local derivatives are added to determine parameters which relate to the track's residual on certain planes. Useful for kink angle estimations.
 \end{itemize}
 
 This information is needed for all track fitting and alignment, apart from the local derivatives.
@@ -114,15 +112,20 @@ This information is needed for all track fitting and alignment, apart from the l
 \end{tcolorbox}
 \begin{center}
 \includegraphics[width=1.0\linewidth]{figures/meas-scat-jac-link.png}
-\captionof{figure}{\color{Green} A simple illustration of the linking of discrete points to form a continuous track. The full track does not have to be considered but only the location with measurements and scattering. The red points are measurement/scattering locations, the orange are only scattering.  All the points are linked together by Jacobians which are determined from the initial trajectory. The location of the points is not correct in the diagram and depends on the material distribution for each setup.}
+\captionof{figure}{\color{Green} A simple illustration of the linking of discrete points to form a continuous track. The green planes correspond to the mimosa sensors used to reconstruct the track onto devices of interest. Any number of additional planes can be added to this setup. The full track does not have to be considered but only the locations with measurements and scattering. The red points are measurement/scattering locations, the orange are only scattering.  All the points are linked together by Jacobians which are determined from the initial trajectory. The location of the points are not correct in the diagram and depends on the material distribution for each setup.}
 \label{Scat}
 \end{center}
 \section*{ATLAS Pixels}
-One example of the various ATLAS pixels sensors reconstructed is the Quad module. The Quad module is a large area sensor that is compatible with the geometry of the outer barrel layers and forward disks of the upgraded pixel tracker. It is readout with the 4 FEI4s with 50x250 $\mu m^2$ pixel size\cite{quad}. The space inbetween the 4 FEI4s is bridged with ganged pixels. 
+One example of the various ATLAS pixels sensors reconstructed is the Quad module. The Quad module is a large area sensor that is compatible with the geometry of the outer barrel layers and forward disks of the upgraded pixel tracker. It is readout with 4 FEI4 chips of 50x250 $\mu m^2$ pixel size\cite{quad}. The space inbetween the 4 FEI4s is bridged with ganged pixels. 
 
 \begin{center}
+\centering
 \includegraphics[width=0.8\linewidth]{figures/QuadXRes21.pdf}
-\captionof{figure}{\color{Green} Quad module local X axis residual for DESY 4 GeV beam. This fit with the expected 250 $\mu m$ pitch assuming a uniform distribution of predicted hits on each pixel.}
+\vspace*{-20 mm}
+\begin{center}
+\textbf{Residual (mm)} 
+\end{center}
+\captionof{figure}{\color{Green} Quad module local X axis residual for DESY 4 GeV beam. RMS is comparable with the expected 250 $\mu m$ pitch assuming a uniform distribution of predicted hits on each pixel.}
 \label{trine}
 \end{center}
 
@@ -137,43 +140,50 @@ One example of the various ATLAS pixels sensors reconstructed is the Quad module
 %\end{center}
 
 \section*{ATLAS strips}
-The ATLAS12 sensor is a n$^+$-in-p strip sensors of pitch 70 $\mu m$\cite{atlas12}. 
+The ATLAS12 sensor is a n$^+$-in-p strip device of pitch 70 $\mu m$\cite{atlas12}. 
 \begin{center}
 \includegraphics[width=0.7\linewidth]{figures/Res1D.pdf}
-\captionof{figure}{\color{Green} This dataset was taken at DESY with beam energy 4.4 GeV. The residual in the X axis local frame. The local frame is the one with the X axis perpendicular to the X axis. This sensor has not undergone full body alignment due to large correlations in the rotations round the X/Y axis and Z shifts. This is due to the large offsets of the hit strips in the local frame. The beam divergence of the DESY beam is approximately 1.5 $\mu$Rad, therefore these rotations are weak modes relative to the tracks fit characterized by the chi2 test statistic . }
+\vspace*{-15 mm}
+\begin{center}
+\textbf{Residual (mm)} 
+\end{center}
+\captionof{figure}{\color{Green} This dataset was taken at DESY with beam energy 4.4 GeV. The residual is along the X axis in the local frame. The local frame is the one with the X axis perpendicular to strips. This sensor has not undergone full body alignment due to large correlations in the rotations round the X/Y axis and Z shifts. This is due to the large offsets of the hit strips in the local frame. The beam divergence of the DESY beam is approximately 1.5 $\mu$Rad, therefore these rotations are weak modes relative to the tracks fit characterized by the chi2 test statistic . }
 \label{strip}
 \end{center}
 
 
-\section*{Additional features}
+\section*{Additional Features}
 This track fitting procedure has been used for many different purposes. Some are complete and others are in development. In all cases examples from the raw data to the final reconstructed tracks are available as part of the EUTelescope examples. 
-
-The fitter has been tested with use in a magnetic field with various beam energies at the DESY testbeam. Both forms of pattern recognition are designed to function in the presence of magnetic fields. The energy of each track is assumed constant which is an approximation since this will change during the tracks trajectory.
+\newline
+\newline
+\textbf{Magnetic fields:} The fitter has been tested with use in a magnetic field with various beam energies at the DESY testbeam. Both forms of pattern recognition are designed to function in the presence of magnetic fields. The energy of each track is assumed constant which is an approximation since this will change during the track's trajectory.
 \begin{center}
-\includegraphics[width=0.8\linewidth]{figures/beamE3B1.pdf}
-\captionof{figure}{\color{Green} Measurement of beam energy using the curvature of the beam with 1T magnetic field. The clustering pattern recognition was used to find tracks to be fitted. The R parameter is the clustering window in which hits will be assumed to form a track if within this window. No bias was found between pattern recognition settings and the final measured beam energy.}
+\includegraphics[width=0.6\linewidth]{figures/beamE3B1.pdf}
+\captionof{figure}{\color{Green} Measurement of beam energy using the curvature of the beam with 1T magnetic field. The clustering pattern recognition was used to find tracks to be fitted. The R parameter is the clustering window in which hits will be assumed to form a track if within this window. The beam energy is the pattern recognition assumption during clustering. No bias was found between pattern recognition settings and the final measured beam energy.}
 \label{trine}
 \end{center}
 
-A range of beam energies (1 GeV to 5 GeV)/magnetic fields (0 T to 1 T) from different datasets have been fitted and aligned. The estimated track energies have all corresponded to expected physical values given some energy loss due to bremsstrahlung and the nature energy spread of the beam.
-
-A scattering plane of interest can be placed at any location using the geometry description with EUTelescope. This allows the scattering at a location in space to be estimated using the kink angles at that location. This is currently been used for radiation length measurements and in development. 
-
-A ATLAS12 sensor has been reconstructed using the ALiBaVa readout system. This allows the charge information to be determined, this reduces the value of the measured uncertainty of hit position. 
+A range of beam energies (1 GeV to 5 GeV)/magnetic fields (0 T to 1 T) from different datasets have been fitted and aligned. The estimated track energies have all corresponded to expected physical values given some energy loss due to bremsstrahlung and the energy spread of the beam.
+\newline
+\newline
+\textbf{Kink Angle Estimations:} A scattering plane of interest can be placed at any location using the geometry description within EUTelescope. This allows the scattering at a location in space to be estimated using the kink angles at that location. This is currently been used for radiation length measurements and in development. 
+\newline
+\newline
+\textbf{ALiBaVa Readout:} A ATLAS12 sensor has been reconstructed using the ALiBaVa readout system. This allows the charge information to be determined, this reduces the value of the measured uncertainty of hit position. 
 
 \begin{thebibliography}{9}
-	\bibitem{quad} P.P AllPort et al. "Development of planar pixel modules for the ATLAS high luminosity LHC tracker upgrade".Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment 2014: 109–113 
-	\bibitem{atlas12} Unno, Y. et al, "Development of n$^+$-in-p large-area silicon microstrip sensors for very high radiation environments – ATLAS12" design and initial results. Proceedings, 9th International Symposium on Development and Application of Semiconductor Tracking 2014:80-90 
+	\bibitem{quad} P.P AllPort et al. "Development of planar pixel modules for the ATLAS high luminosity LHC tracker upgrade".Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment 2014: 109 to 113
+	\bibitem{atlas12} Unno, Y. et al, "Development of n$^+$-in-p large-area silicon microstrip sensors for very high radiation environments  ATLAS12" design and initial results. Proceedings, 9th International Symposium on Development and Application of Semiconductor Tracking 2014:$80-90$ 
 \bibitem{eutel} EUTelescope 1.0: Reconstruction Software for the AIDA Testbeam Telescope. Bisanz T, Morton A, Rubinskiy I, Cern document server
 
 	\bibitem{claus1}  C. Kleinwort, General Broken Lines as advanced track model, Draft Manual, DESY, 2011
                         Detectors (HSTD-9)
 	\bibitem{claus2}  C. Kleinwort, General Broken Lines as advanced track fitting method, NIM A, 673 (2012), 107-110
-%	\bibitem{blobel} V. Blobel, Millepede II. https://www.wiki.terascale.de/index.php/Millepede_II. (obtained 2 September 2013)
+	\bibitem{blobel} V. Blobel, Millepede II. $https://www.wiki.terascale.de/index.php/MillepedeII$. (obtained 20 August 2015)
 \end{thebibliography}
 
 \section*{Acknowledgements}
-Thanks to Craig Buttar, Kenneth Wraight and Andy Blue for helping with much of the reconstruction before pattern recognition, track fitting and alignment. Thanks to Claus Kleinwort who has taught me almost everything about track fitting and alignment. 
+Thanks to Craig Buttar, Kenneth Wraight and Andy Blue for helping with much of the reconstruction before pattern recognition, track fitting and alignment. Thanks to Claus Kleinwort who has taught me almost everything I know about track fitting and alignment. 
 
 
 
