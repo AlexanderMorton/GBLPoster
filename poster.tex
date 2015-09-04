@@ -3,11 +3,8 @@
 \usepackage{multicol} % This is so we can have multiple columns of text side-by-side
 \columnsep=100pt % This is the amount of white space between the columns in the poster
 
-
-
-
-
-
+\usepackage{textpos}
+\usepackage[percent]{overpic}
 
 \columnseprule=0pt % This is the thickness of the black line between the columns in the poster
 
@@ -121,10 +118,14 @@ This information is needed for all track fitting and alignment, apart from the l
 \section*{ATLAS Pixels}
 One example of the various ATLAS pixels sensors reconstructed is the Quad module. The Quad module is a large area sensor that is compatible with the geometry of the outer barrel layers and forward disks of the upgraded pixel tracker. It is readout with 4 FEI4 chips of 50x250 $\mu m^2$ pixel size\cite{quad}. The space inbetween the 4 FEI4s is bridged with ganged pixels. 
 
+
+
 \begin{center}
 \centering
-\includegraphics[width=0.8\linewidth]{figures/QuadXRes21.pdf}
-\vspace*{-20 mm}
+\begin{overpic}[width=0.4\textwidth]{figures/QuadXRes21.pdf}
+ \put (15,40) {\textbf{ATLAS Work in Progress}}
+\end{overpic}
+\vspace*{-15 mm}
 \begin{center}
 \textbf{Residual (mm)} 
 \end{center}
@@ -135,23 +136,30 @@ One example of the various ATLAS pixels sensors reconstructed is the Quad module
 \section*{ATLAS strips}
 The ATLAS12 sensor is a n$^+$-in-p strip device of pitch 70 $\mu m$\cite{atlas12}. 
 \begin{center}
-\includegraphics[width=0.7\linewidth]{figures/Res1D.pdf}
+\begin{overpic}[width=0.4\textwidth]{figures/Res1D.pdf}
+ \put (12,50) {\textbf{ATLAS Work in Progress}}
+\end{overpic}
 \vspace*{-15 mm}
 \begin{center}
 \textbf{Residual (mm)} 
 \end{center}
-\captionof{figure}{\color{Green} This dataset was taken at DESY with beam energy 4.4 GeV. The residual is along the X axis in the local frame. The local frame is the one with the X axis perpendicular to strips. This sensor has not undergone full body alignment due to large correlations in the rotations round the X/Y axis and Z shifts. This is due to the large offsets of the hit strips in the local frame. The beam divergence of the DESY beam is approximately 1.5 $\mu$Rad, therefore these rotations are weak modes relative to the tracks fit characterized by the chi2 test statistic . }
+\captionof{figure}{\color{Green} This dataset was taken at DESY with beam energy 4.4 GeV. The residual is along the X axis in the local frame. The local frame is the one with the X axis perpendicular to the strips.}
 \label{strip}
 \end{center}
 
 
 \section*{Additional Features}
-This track fitting procedure has been used for many different purposes. Some are complete and others are in development. In all cases examples from the raw data to the final reconstructed tracks are available as part of the EUTelescope examples. 
+This track fitting procedure has been used for many different purposes such as radiation length studies and beam energy measurements. Some are complete and others are in development.
 \begin{center}
-\includegraphics[width=0.6\linewidth]{figures/beamE3B1.pdf}
+\begin{overpic}[width=0.3\textwidth]{figures/beamE3B1.pdf}
+\put (40,85) {\textbf{ATLAS Work in Progress}}
+\end{overpic}
 \captionof{figure}{\color{Green} Measurement of beam energy using the curvature of the beam with 1T magnetic field. The clustering pattern recognition was used to find tracks to be fitted. The R parameter is the clustering window in which hits will be assumed to form a track if within this window. The beam energy is the pattern recognition assumption during clustering. No bias was found between pattern recognition settings and the final measured beam energy.}
 \label{trine}
 \end{center}
+
+\section*{Summary} 
+The GBL algorithm has been integrated into the EUTelescope framework. A variety of DUTs and setups have been successfully fitted and the full reconstruction chain is available as examples with installation. The output of the reconstruction comes in LCIO or ROOT formats to allow the use of additional analysis software such as TBMon. The future development of the fitter will allow more complex pixel structures to be described and fitted beyond the Cartesian coordinate system of the local frame.
 
 \begin{thebibliography}{9}
 	\bibitem{quad} P.P AllPort et al. "Development of planar pixel modules for the ATLAS high luminosity LHC tracker upgrade".Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment 2014: 109 to 113
